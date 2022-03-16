@@ -1,0 +1,109 @@
+{
+    "name": "Fattesingh Rane",
+    "bio_data": {
+        "address": "Hs.No 55, Goa-Dodamarg, Latambarcem, Bicholim, Goa PIN: 403503",
+        "mobile": "7218550841",
+        "birth": "25th May 1997",
+        "email": "ranefattesingh@gmail.com",
+        "linkedIn": "https://www.linkedin.com/in/fattesingh-rane-5639b11ba/",
+        "github": "https://github.com/ranefattesingh"
+    },
+    "data": {
+        "carrier objective": {
+            "profile1": {
+                "grey_value_1": "As fresher I would like to be a part of organization that gives a scope to enhance my knowledge and utilizing my skills towards the growth of the organization."
+            }
+        },
+        "academic profile": {
+            "profile1": {
+                "bold_value1": "Bachelor of Computer Engineering",
+                "grey_value1": "2015-2019",
+                "grey_value2": "Goa University",
+                "grey_value3": "Agnel Institute of Technology and Design",
+                "grey_value4": "67.84%"
+            },
+            "profile2": {
+                "bold_value1": "Higher Secondary School Certificate (HSSC - 12th Science)",
+                "grey_value1": "2015",
+                "grey_value3": "Goa Board",
+                "grey_value4": "Purushottom Walawalkar Higher Secondary School of Arts, Science and Commerce",
+                "grey_value5": "60.67%"
+            },
+            "profile3": {
+                "bold_value1": "Secondary School Certificate (SSC - 10th Grade)",
+                "grey_value1": "2013",
+                "grey_value3": "Goa Board",
+                "grey_value4": "Shivajiraje High School",
+                "grey_value5": "73.67%"
+            }
+        },
+        "experiences": {
+            "profile1": {
+                "bold_value1": "Intern",
+                "grey_value1": "Innovians Technology",
+                "grey_value3": "Noida, Utterpradesh",
+                "grey_value4": "2 weeks",
+                "grey_value5": "IoT, Arduino, Raspberry Pi3, and ESP8266"
+            },
+            "profile2": {
+                "bold_value1": "Intern",
+                "grey_value1": "Svastek",
+                "grey_value3": "Margao, Goa",
+                "grey_value4": "2 weeks",
+                "grey_value5": "Firebase, Html, jQuery, CSS, Bootstrap"
+            },
+            "profile3": {
+                "bold_value1": "Intern",
+                "grey_value1": "Persistant",
+                "grey_value3": "Verna, Goa",
+                "grey_value4": "2 weeks",
+                "grey_value5": "Core Java"
+            }
+        },
+        "skills": {
+            "profile1": "C",
+            "profile2": "C++",
+            "profile3": "Java Programming",
+            "profile4": "Python",
+            "profile5": "SQL",
+            "profile6": "HTML",
+            "profile7": "JavaScript"
+        },
+        "projects": {
+            "profile1": {
+                "bold_value1": "Online Product Review Classification",
+                "grey_value1": "Machine Learning application for analysys of user rating and reviews for E-Commerce website and produce a system generatedrating score out of 5 for the product.",
+                "grey_value2": "Developed using Java and Servlet programming."
+            },
+            "profile2": {
+                "bold_value1": "Library Management System",
+                "grey_value1": "Book keeping project for a library for managing books and students.",
+                "grey_value2": "Developed using C#, ASP.Net and Oracle Database."
+            },
+            "profile3": {
+                "bold_value1": "Bus Ticket Reservation System",
+                "grey_value1": "Desktop application develop for making ticket booking for bus services",
+                "grey_value2": "Developed using C#, ASP.Net Windows Forms and Oracle Database."
+            }
+        },
+        "achievements": {
+            "profile1": {
+                "bold_value1": "Runner up at Codedown",
+                "grey_value1": "A inter-collage coding competition held at Agnel Institute of Technology and Design"
+            },
+            "profile2": {
+                "bold_value1": "Runner up at Desserts and Beverages",
+                "grey_value1": "Cooking event conducted by Saraswat Vidyalaya"
+            },
+            "profile3": {
+                "bold_value1": "Winner at Cyber Zone",
+                "grey_value1": "Counter-Strike gaming event conducted by Saraswat B.C.A"
+            }
+        },
+        "interests": {
+            "profile1": "Web Development",
+            "profile2": "Machine Learning",
+            "profile3": "Teaching"
+        }
+    }
+}

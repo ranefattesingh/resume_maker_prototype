@@ -3,6 +3,9 @@ from docx.shared import Pt, RGBColor, Inches, Cm
 from docx.table import _Cell
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+import json
+import os
+
 
 def set_cell_margins(cell: _Cell, **kwargs):
     """
@@ -69,77 +72,12 @@ def set_cell_border(cell: _Cell, **kwargs):
                 if key in edge_data:
                     element.set(qn('w:{}'.format(key)), str(edge_data[key]))
 
-name = "Fattesingh Rane"
-bio_data = {
-    "address": 'Hs.No 55, Goa-Dodamarg, Latambarcem, Bicholim, Goa PIN:403503',
-    "mobile": "7218550841",
-    "birth": "25th May 1997",
-    "email": "ranefattesingh@gmail.com",
-    "linkedIn": "url.com",
-    "facebook": "url.com",
-    "github": "url.com"
-}
+f = open('profile.json')
+profile = json.load(f)
 
-data = {
-    "carrier objective": {
-        "profile1": {
-            "grey_value_1": "As experienced developer I would like to be a part of organization that gives a scope to enhance my knowledge and utilizing my skills towards the growth of the organization."
-        }
-    },
-    "academic profile": {
-        "profile1": {
-            "bold_value1": "Bachelor of Engineering(Computer)",
-            "grey_value1": "2015-2019",
-            "grey_value2": "Goa University",
-            "grey_value3": "Agnel Institute of Technology and Design",
-            "grey_value4": "67.84%"
-        },
-        "profile2": {
-            "bold_value1": "Higher Secondary School Certificate (HSSC - 12th Science)",
-            "grey_value1": "2015",
-            "grey_value3": "Goa Board",
-            "grey_value4": "Purushottom Walawalkar Higher Secondary School of Arts, Science and Commerce",
-            "grey_value5": "60.67%"
-        },
-        "profile3": {
-            "bold_value1": "Secondary School Certificate (SSC - 10th Grade)",
-            "grey_value1": "2013",
-            "grey_value3": "Goa Board",
-            "grey_value4": "Shivajiraje High School",
-            "grey_value5": "73.67%"
-        },
-    },
-    "experience": {
-        "profile1":{
-            "bold_value1": "Intern",
-            "grey_value1": "Innovians Technology",
-            "grey_value3": "Noida, Utterpradesh",
-            "grey_value4": "2 weeks",
-            "grey_value5": "IoT, Arduino, Raspberry Pi3, and ESP8266"
-        },
-        "profile2":{
-            "bold_value1": "Intern",
-            "grey_value1": "Svastek",
-            "grey_value3": "Margao, Goa",
-            "grey_value4": "2 weeks",
-            "grey_value5": "Firebase, Html, jQuery, CSS, Bootstrap"
-        },
-        "profile3":{
-            "bold_value1": "Intern",
-            "grey_value1": "Persistant",
-            "grey_value3": "Verna, Goa",
-            "grey_value4": "2 weeks",
-            "grey_value5": "Core Java"
-        },
-        "profile3":{
-            "bold_value1": "Software Developer",
-            "grey_value1": "Open Destinations Infotech Pvt. Ltd",
-            "grey_value3": "Miramar, Goa",
-            "grey_value4": "1 year 8 months",
-            "grey_value5": "C#, ASP.NET MVC, AngularJs, Html, Css, Sass, Javascript, ASP.NET Core, API"
-        }
-    }
-}
+name = profile['name']
+bio_data = profile['bio_data']
+data = profile['data']
 
 bold_label = "bold_value"
 
@@ -270,20 +208,39 @@ for item in data:
         level2 = level1_row_cells[0].add_table(rows = 0, cols = 1)
         set_cell_margins(level1_row_cells[0], top=0, start=0, bottom=0, end=0)
         level2.style = 'Table Grid'
-        for item2 in group_item:
-            #THIS LOOP FILLS DATA IN RIGHT CONTAINER
-            entry = group_item[item2]
+        
+
+        if isinstance(group_item, str):
+            entry = group_item
             level2_row = level2.add_row()
             level2_row_cells = level2_row.cells
-            set_cell_margins(level2_row_cells[0], top=0, start=0, bottom=0, end=0)
-            level2_row_cells[0]._element.clear_content()
-            if bold_label in item2:
-                level2_row_cells[0].text = entry
-                make_table_row_bold(level2_row_cells[0])
-            else:
-                level2_row_cells[0].text = entry
-                change_table_row_color(level2_row_cells[0])
+            set_cell_margins(level2_row_cells[0], top=0, start=0, bottom=0,end=0)
+            level2_row_cells[0].text = entry
+            change_table_row_color(level2_row_cells[0])
             hide_cell_border(level2_row_cells[0])
-        space_row_cells = level1.add_row().cells
+
+            if list(group.keys())[-1]==item1:
+                space_row_cells = level1.add_row().cells
+                hide_cell_border(space_row_cells[0])
+        else:     
+            for item2 in group_item:
+                #THIS LOOP FILLS DATA IN RIGHT CONTAINER
+                entry = group_item[item2]
+                level2_row = level2.add_row()
+                level2_row_cells = level2_row.cells
+                set_cell_margins(level2_row_cells[0], top=0, start=0, bottom=0, end=0)
+                change_table_row_color(level2_row_cells[0])
+                level2_row_cells[0]._element.clear_content()
+                if bold_label in item2:
+                    level2_row_cells[0].text = entry
+                    make_table_row_bold(level2_row_cells[0])
+                else:
+                    level2_row_cells[0].text = entry
+                    change_table_row_color(level2_row_cells[0])
+                hide_cell_border(level2_row_cells[0])
+
+        if not isinstance(group_item, str):
+            space_row_cells = level1.add_row().cells
         hide_cell_border(space_row_cells[0])
 doc.save("resume.docx")
+print("Resume is saved in project directory", os.getcwd())
